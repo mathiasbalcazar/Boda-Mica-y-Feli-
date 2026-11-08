@@ -9,6 +9,7 @@
 <meta property="og:description" content="Nos casamos y queremos celebrarlo contigo.">
 <meta property="og:image" content="img/foto-6.jpg">
 <meta name="theme-color" content="#F3EFE6">
+<link rel="icon" type="image/png" href="img/logo-azul.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
@@ -61,7 +62,8 @@
   .envelope .bolsillo::after{content:"";position:absolute;left:0;right:0;bottom:0;height:52%;background:#FAF7F1;clip-path:polygon(0 100%,50% 0,100% 100%)}
   .envelope .solapa{position:absolute;left:0;right:0;top:0;height:58%;background:#F1ECE2;clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;
     transition:transform .7s ease-in, z-index 0s .35s;z-index:3;border-radius:4px 4px 0 0}
-  .sello{position:absolute;left:50%;top:58%;width:64px;height:64px;margin:-32px 0 0 -32px;z-index:4;border-radius:50%;
+  .sello .logo{width:84%;height:84%;background-color:#fff;filter:drop-shadow(0 1px 0 rgba(0,0,0,.15))}
+  .sello{position:absolute;left:50%;top:58%;width:78px;height:78px;margin:-39px 0 0 -39px;z-index:4;border-radius:50%;
     background:radial-gradient(circle at 35% 30%, #C3D7E1 0%, var(--azul) 45%, #8AA9B9 100%);
     box-shadow:0 3px 8px rgba(61,74,82,.25), inset 0 0 0 4px rgba(255,255,255,.18), inset 0 -3px 6px rgba(0,0,0,.12);
     display:flex;align-items:center;justify-content:center;transition:opacity .35s, transform .5s}
@@ -175,7 +177,9 @@
 
   /* pie */
   footer{background:var(--tinta);color:var(--marfil);padding:90px 24px 70px;text-align:center}
-  footer .mono{width:110px;margin:0 auto 22px;color:var(--azul)}
+  footer .mono{width:140px;height:140px;margin:0 auto 22px;background-color:var(--azul)}
+  /* logo MF (se colorea con background-color) */
+  .logo{display:block;-webkit-mask:url(img/logo-azul.png) center/contain no-repeat;mask:url(img/logo-azul.png) center/contain no-repeat}
   footer .script{font-size:44px}
   footer .eyebrow{opacity:.7;margin-top:12px}
 
@@ -275,7 +279,7 @@
     <div class="carta"><span class="script">Micaela & Felipe</span><span class="eyebrow">18 · 12 · 2027</span></div>
     <div class="bolsillo"></div>
     <div class="solapa"></div>
-    <div class="sello"><span>MF</span></div>
+    <div class="sello"><i class="logo"></i></div>
   </button>
   <p class="hint" data-i18n="sobre.hint">Toca el sobre para abrirlo</p>
 </div>
@@ -449,11 +453,7 @@
 
 <!-- ===== PIE ===== -->
 <footer>
-  <svg class="mono" viewBox="0 0 120 120" aria-hidden="true">
-    <circle cx="60" cy="60" r="56" fill="none" stroke="currentColor" stroke-width="1"/>
-    <text x="40" y="76" font-family="Great Vibes, cursive" font-size="58" fill="currentColor" text-anchor="middle">M</text>
-    <text x="80" y="84" font-family="Great Vibes, cursive" font-size="58" fill="currentColor" text-anchor="middle">F</text>
-  </svg>
+  <i class="logo mono" aria-hidden="true"></i>
   <p class="script">Micaela & Felipe</p>
   <p class="eyebrow">18 · 12 · 2027</p>
 </footer>
