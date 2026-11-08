@@ -26,6 +26,7 @@
     --serif:'Cormorant Garamond', Georgia, serif;
     --script:'Great Vibes', cursive;
     --sans:'Montserrat', system-ui, sans-serif;
+    --arena-tex:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .45 0 0 0 0 .32 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.28'/%3E%3C/svg%3E");
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
@@ -74,7 +75,7 @@
 
   /* ---------- PORTADA ---------- */
   .hero{position:relative;height:100svh;min-height:560px;overflow:hidden;color:#fff;display:flex;align-items:flex-end;justify-content:center;text-align:center}
-  .hero picture, .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .hero picture, .hero img, .hero .video-portada{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
   .hero img{transform:scale(1.12);transition:transform 9s ease-out}
   body.listo .hero img{transform:scale(1)}
   .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom, rgba(30,40,46,.25) 0%, rgba(30,40,46,0) 30%, rgba(30,40,46,.05) 55%, rgba(30,40,46,.6) 100%)}
@@ -185,6 +186,38 @@
   .idiomas button[aria-pressed=true]{background:var(--azul-oscuro);color:#fff}
   .idiomas button:hover:not([aria-pressed=true]){color:var(--tinta)}
 
+  /* olas entre secciones */
+  .olas{position:absolute;left:0;right:0;bottom:-1px;height:clamp(46px,7vw,90px);z-index:3;pointer-events:none;line-height:0}
+  .olas svg{width:100%;height:100%;display:block}
+  .olas use{animation:ola 22s cubic-bezier(.55,.5,.45,.5) infinite}
+  .olas use:nth-child(1){animation-delay:-2s;animation-duration:9s}
+  .olas use:nth-child(2){animation-delay:-3s;animation-duration:12s}
+  .olas use:nth-child(3){animation-delay:-4s;animation-duration:16s}
+  .olas use:nth-child(4){animation-delay:-5s;animation-duration:24s}
+  @keyframes ola{0%{transform:translate3d(-90px,0,0)}100%{transform:translate3d(85px,0,0)}}
+  .olas.a-marfil use:nth-child(1){fill:rgba(243,239,230,.30)}
+  .olas.a-marfil use:nth-child(2){fill:rgba(243,239,230,.50)}
+  .olas.a-marfil use:nth-child(3){fill:rgba(243,239,230,.70)}
+  .olas.a-marfil use:nth-child(4){fill:#F3EFE6}
+  .olas.a-azul use:nth-child(1){fill:rgba(169,195,208,.30)}
+  .olas.a-azul use:nth-child(2){fill:rgba(169,195,208,.50)}
+  .olas.a-azul use:nth-child(3){fill:rgba(169,195,208,.70)}
+  .olas.a-azul use:nth-child(4){fill:#A9C3D0}
+  .olas.a-tinta use:nth-child(1){fill:rgba(61,74,82,.20)}
+  .olas.a-tinta use:nth-child(2){fill:rgba(61,74,82,.40)}
+  .olas.a-tinta use:nth-child(3){fill:rgba(61,74,82,.65)}
+  .olas.a-tinta use:nth-child(4){fill:#3D4A52}
+  .hero .contenido{padding-bottom:calc(96px + env(safe-area-inset-bottom))}
+
+  /* textura de arena muy suave */
+  #sobre, .saludo, .vestimenta, .rsvp{background-image:var(--arena-tex)}
+  #sobre{background-image:var(--arena-tex), radial-gradient(ellipse at 50% 40%, #F8F5EE 0%, var(--marfil) 45%, var(--marfil-2) 100%)}
+  .envelope .base, .envelope .bolsillo, .envelope .solapa{background-image:var(--arena-tex)}
+
+  /* separador: dos olitas que se dibujan al aparecer */
+  .separador{stroke-dasharray:150;stroke-dashoffset:150;transition:opacity 1.1s ease, transform 1.1s ease, stroke-dashoffset 2.2s ease .35s}
+  .separador.visible{stroke-dashoffset:0}
+
   /* animaciones al hacer scroll */
   .aparece{opacity:0;transform:translateY(28px);transition:opacity 1.1s ease, transform 1.1s ease}
   .aparece.visible{opacity:1;transform:none}
@@ -214,9 +247,11 @@
         <ellipse cx="60" cy="10" rx="5.5" ry="15"/>
       </g>
     </symbol>
-    <symbol id="ondita" viewBox="0 0 120 12">
-      <path d="M2 6 C 22 -2, 38 14, 60 6 S 98 -2, 118 6" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    <symbol id="ondita" viewBox="0 0 120 20">
+      <path d="M2 7 C 22 -1, 38 15, 60 7 S 98 -1, 118 7" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <path d="M22 15 C 36 10, 48 19, 60 15 S 86 10, 98 15" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity=".7"/>
     </symbol>
+    <path id="ola" d="M-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18v44h-352z"/>
   </defs>
 </svg>
 
@@ -257,6 +292,7 @@
     <p class="fecha">18.12.2027</p>
     <div class="desliza"><span class="eyebrow" style="font-size:9px" data-i18n="hero.desliza">Desliza</span><i></i></div>
   </div>
+  <div class="olas a-marfil" aria-hidden="true"><svg viewBox="0 24 150 28" preserveAspectRatio="none"><use href="#ola" x="48" y="0"/><use href="#ola" x="48" y="3"/><use href="#ola" x="48" y="5"/><use href="#ola" x="48" y="7"/></svg></div>
 </header>
 
 <!-- ===== SALUDO ===== -->
@@ -267,8 +303,9 @@
     <p class="lead aparece d1" data-i18n="saludo.p1"></p>
     <p class="lead aparece d2" data-i18n="saludo.p2"></p>
     <p class="lead aparece d3" data-i18n="saludo.p3"></p>
-    <svg class="separador aparece" height="12"><use href="#ondita"/></svg>
+    <svg class="separador aparece" height="18"><use href="#ondita"/></svg>
   </div>
+  <div class="olas a-azul" aria-hidden="true"><svg viewBox="0 24 150 28" preserveAspectRatio="none"><use href="#ola" x="48" y="0"/><use href="#ola" x="48" y="3"/><use href="#ola" x="48" y="5"/><use href="#ola" x="48" y="7"/></svg></div>
 </section>
 
 <!-- ===== CUENTA REGRESIVA ===== -->
@@ -312,7 +349,7 @@
 <section class="itinerario bloque">
   <div class="wrap center">
     <p class="titulo-script aparece" data-i18n="iti.titulo">El gran día</p>
-    <svg class="separador aparece" height="12"><use href="#ondita"/></svg>
+    <svg class="separador aparece" height="18"><use href="#ondita"/></svg>
     <ul class="linea">
       <li class="aparece"><span class="h">--:--</span><span class="p"></span><span class="t" data-i18n="iti.1">Ceremonia</span></li>
       <li class="aparece d1"><span class="h">--:--</span><span class="p"></span><span class="t" data-i18n="iti.2">Cóctel</span></li>
@@ -336,7 +373,7 @@
 <section class="vestimenta bloque">
   <div class="wrap center">
     <p class="titulo-script aparece" data-i18n="ves.titulo">Código de vestimenta</p>
-    <svg class="separador aparece" height="12"><use href="#ondita"/></svg>
+    <svg class="separador aparece" height="18"><use href="#ondita"/></svg>
     <p class="lead aparece" data-i18n="pend.corto">Por confirmar.</p>
     <p class="lead aparece d1" data-i18n="ves.colores"></p>
     <div class="paleta aparece d2" aria-hidden="true">
@@ -350,10 +387,11 @@
   <div class="wrap center">
     <svg class="icono aparece" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><rect x="7" y="19" width="34" height="23" rx="1"/><rect x="4" y="13" width="40" height="7" rx="1"/><path d="M24 13v29M24 13c-3-7-13-8-12-2 1 4 9 2 12 2zM24 13c3-7 13-8 12-2-1 4-9 2-12 2z"/></svg>
     <p class="titulo-script aparece" data-i18n="reg.titulo">Regalos</p>
-    <svg class="separador aparece" height="12"><use href="#ondita"/></svg>
+    <svg class="separador aparece" height="18"><use href="#ondita"/></svg>
     <p class="lead aparece" data-i18n="reg.p1"></p>
     <p class="lead aparece d1" data-i18n="reg.p2"></p>
   </div>
+  <div class="olas a-marfil" aria-hidden="true"><svg viewBox="0 24 150 28" preserveAspectRatio="none"><use href="#ola" x="48" y="0"/><use href="#ola" x="48" y="3"/><use href="#ola" x="48" y="5"/><use href="#ola" x="48" y="7"/></svg></div>
 </section>
 
 <!-- ===== RSVP ===== -->
@@ -361,7 +399,7 @@
   <div class="wrap">
     <div class="center">
       <p class="titulo-script aparece" data-i18n="rsvp.titulo">¿Nos acompañas?</p>
-      <svg class="separador aparece" height="12"><use href="#ondita"/></svg>
+      <svg class="separador aparece" height="18"><use href="#ondita"/></svg>
       <p class="lead aparece" data-i18n-html="rsvp.lead"></p>
     </div>
 
@@ -406,6 +444,7 @@
       <p class="lead" data-i18n="gracias.p">Recibimos tu respuesta. Nos llena de alegría.</p>
     </div>
   </div>
+  <div class="olas a-tinta" aria-hidden="true"><svg viewBox="0 24 150 28" preserveAspectRatio="none"><use href="#ola" x="48" y="0"/><use href="#ola" x="48" y="3"/><use href="#ola" x="48" y="5"/><use href="#ola" x="48" y="7"/></svg></div>
 </section>
 
 <!-- ===== PIE ===== -->
@@ -422,7 +461,8 @@
 <script>
   /* ====== CONFIGURACIÓN ====== */
   const BODA = new Date('2027-12-18T16:00:00');   // fecha y hora de la boda (hora provisional)
-  const RSVP_URL = 'https://script.google.com/macros/s/AKfycbz0O36mVYnCZ1XokmdUJW5iit8DvSOCwLRlF2omhLHC3isWpTrVTyRXR58u5q7BDJSu/exec';   // Google Sheets "Confirmaciones Boda Mica y Feli"
+  const VIDEO_PORTADA = '';   // p. ej. 'img/portada.mp4' — si se deja vacío, la portada usa la foto
+  const RSVP_URL ='https://script.google.com/macros/s/AKfycbz0O36mVYnCZ1XokmdUJW5iit8DvSOCwLRlF2omhLHC3isWpTrVTyRXR58u5q7BDJSu/exec';   // Google Sheets "Confirmaciones Boda Mica y Feli"
 
   /* ====== TEXTOS EN CADA IDIOMA ====== */
   const TEXTOS = {
@@ -618,12 +658,24 @@
   }));
   aplicarIdioma(idioma);
 
+  /* Video de portada (si hay): reemplaza la foto y arranca al abrir el sobre */
+  let video = null;
+  if (VIDEO_PORTADA) {
+    video = document.createElement('video');
+    Object.assign(video, { src: VIDEO_PORTADA, muted: true, loop: true, playsInline: true, preload: 'auto' });
+    video.setAttribute('muted', ''); video.setAttribute('playsinline', '');
+    video.poster = document.querySelector('.hero img').currentSrc || 'img/foto-6.jpg';
+    video.className = 'video-portada';
+    document.querySelector('.hero picture').replaceWith(video);
+  }
+
   /* Abrir el sobre */
   const sobre = document.getElementById('sobre');
   function abrir() {
     if (sobre.classList.contains('abierto')) return;
     sobre.classList.add('abierto');
     window.scrollTo(0, 0);
+    if (video) video.play().catch(() => {});
     setTimeout(() => { document.body.classList.remove('cerrado'); document.body.classList.add('listo'); }, 1300);
   }
   document.getElementById('abrir').addEventListener('click', abrir);
