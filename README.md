@@ -35,21 +35,9 @@ Ejemplo: `https://mathiasbalcazar.github.io/Boda-Mica-y-Feli-/?para=Oma%20Helga&
 - Video de portada
 
 
-## Versión meme 💣
+## Tráiler en video
 
-Proyecto aparte dentro del mismo repositorio, con la misma invitación y el mismo formulario de confirmación, pero con otra entrada.
-
-| Página | Enlace | Qué tiene |
-|---|---|---|
-| `meme/` | https://mathiasbalcazar.github.io/Boda-Mica-y-Feli-/meme/ | Invitación que abre con una bomba, cuenta regresiva de 5 segundos, explosión y la escena de las trompetas de Shrek. Incluye el tráiler. También acepta `?para=` y `?lang=`. |
-| `video/` | https://mathiasbalcazar.github.io/Boda-Mica-y-Feli-/video/ | El tráiler en video vertical (1080×1920, 39 s), con botón para descargarlo. |
-
-Archivos de la versión meme:
-
-- `meme/index.html`: la invitación con la bomba
-- `meme/media/`: la escena de Shrek, su imagen de portada y el sonido de la explosión
-- `video/invitacion-meme.mp4`: el tráiler (mezcla de dos plantillas de TikTok con fotos de los novios)
-- `video/poster.jpg`: la imagen que se ve antes de darle play
+`video/` (https://mathiasbalcazar.github.io/Boda-Mica-y-Feli-/video/) muestra el tráiler vertical con botón para descargarlo.
 
 ## Paleta y tipografía
 
