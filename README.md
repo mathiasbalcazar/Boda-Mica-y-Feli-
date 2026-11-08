@@ -35,10 +35,6 @@ Ejemplo: `https://mathiasbalcazar.github.io/Boda-Mica-y-Feli-/?para=Oma%20Helga&
 - Video de portada
 
 
-## Tráiler en video
-
-`video/` (https://mathiasbalcazar.github.io/Boda-Mica-y-Feli-/video/) muestra el tráiler vertical con botón para descargarlo.
-
 ## Paleta y tipografía
 
 Marfil perla `#F3EFE6` · Arena suave `#D8C8B3` · Azul agua `#A9C3D0` · Verde salvia `#9DA891`
